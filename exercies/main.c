@@ -1,37 +1,51 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "nodo.h"
 
 int main() {
-    printf("===== Repo de ejercicios de nodos =====\n");
+printf("===== Repo de ejercicios de nodos =====\n");
 
-    // Ejercicio 1
-    Nodo* n1 = crearNodo(10);
-    if (n1) printf("Nodo creado con dato: %d\n", n1->dato);
+Nodo* n1 = crearNodo(10);
+if (n1) printf("Nodo creado con dato: %d\n", n1->dato);
 
-    // Ejercicio 2
-    Nodo* arreglo = crearArregloNodos(5);
-    // TODO(1): imprimir arreglo
+Nodo* arreglo = crearArregloNodos(5);
+printf("Arreglo inicial: ");
+for (int i = 0; i < 5; i++) {
+printf("[%d] ", arreglo[i].dato);
+}
+printf("\n");
 
-    // Ejercicio 3
-    int tam = 5;
-    arreglo = agregarNodo(arreglo, &tam, 99);
-    // TODO(2): imprimir arreglo actualizado
+int tam = 5;
+arreglo = agregarNodo(arreglo, &tam, 99);
+printf("Arreglo actualizado: ");
+for (int i = 0; i < tam; i++) {
+printf("[%d] ", arreglo[i].dato);
+}
+printf("\n");
 
-    // Ejercicio 4
-    liberarNodos(arreglo, tam);
-    liberarNodos(n1, 1);
+liberarNodos(arreglo, tam);
+liberarNodos(n1, 1);
 
-    // Ejercicio 5
-    Nodo* inicio = construirTresNodos();
-    // TODO(3): imprimir nodos
+Nodo* inicio = construirTresNodos();
+printf("Lista de tres nodos: ");
+Nodo* temporal = inicio;
+while (temporal != NULL) {
+printf("%d -> ", temporal->dato);
+temporal = temporal->siguiente;
+}
+printf("NULL\n");
 
-    // Ejercicio 6
-    int total = contarNodos(inicio);
-    printf("Total de nodos: %d\n", total);
+int total = contarNodos(inicio);
+printf("Total de nodos: %d\n", total);
 
-    // Ejercicio 7
-    Nodo* desdeEntrada = crearNodosPorEntrada();
-    // TODO(4): imprimir nodos
+Nodo* desdeEntrada = crearNodosPorEntrada();
+printf("Nodos desde entrada: ");
+temporal = desdeEntrada;
+while (temporal != NULL) {
+printf("%d -> ", temporal->dato);
+temporal = temporal->siguiente;
+}
+printf("NULL\n");
 
-    return 0;
+return 0;
 }
